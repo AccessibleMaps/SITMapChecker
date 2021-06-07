@@ -1,0 +1,305 @@
+{
+    "buildings": [
+        {
+            "selected":             true,
+            "name":                 "Andreas Pfitzmann Bau",
+            "type":                 "university",
+            "sitCoverage":         85,
+            "levelCoverages":       [
+                [0,65.0],
+                [1,99.5],
+                [2,20.5]
+            ],
+            "achievements": [        
+                {
+                    "name":             "SIT-Conform",
+                    "achievementId":    "SIT",
+                    "group":            "General",
+                    "description":      "SIT-Conform is lorem ipsum ...",
+                    "fulfilled":        true,
+                    "currentStatus":    76,
+                    "precondition":     [
+                        2,
+                        3,
+                        4
+                    ],
+                    "tasks":    [
+                        {
+                            "name": "Add lorem ipsum key to door",
+                            "errorCode": "SIT-4",
+                            "errors": [
+                                    {
+                                        "title":     "Add door ….",
+                                        "type":    "warning",
+                                        "description": "Add door to ..",
+                                        "suggestion": "qweqweq",
+                                        "objectID":    "28743629378456"
+                                    }
+                                ]
+                        },
+                        {
+                            "name": "Delete lorem ipsum door",
+                            "errorCode": "SIT-5",
+                            "errors": [
+                                {
+                                    "title":   "Delete door …",
+                                    "type":    "error",
+                                    "description": "qweqweqwe",
+                                    "suggestion": "werweRDVC",
+                                    "objectId":    "28748629e78456"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":             "BF-Door",
+                    "achievementId":    "BFD",
+                    "group":            "Accessibility",
+                    "description":      "BF-Door is lorem ipsum ...",
+                    "fulfilled":        false,
+                    "currentStatus":    78,
+                    "precondition":     [
+                        2,
+                        3,
+                        4
+                    ],
+                    "tasks":    [
+                        {
+                            "name": "Add width tag to door",
+                            "errorCode": "BFD-4",
+                            "errors": []
+                        },
+                        {
+                            "name": "Add height tag to door",
+                            "errorCode": "BFD-5",
+                            "errors": [
+                                {
+                                    "title":   "Add height tag to door ",
+                                    "type":    "error",
+                                    "description": "qweqweqwe",
+                                    "suggestion": "werweRDVC",
+                                    "objectId":    "28743623e78455"
+                                },
+                                {
+                                    "title":   "Add height tag to door ",
+                                    "type":    "error",
+                                    "description": "qweqweqwe",
+                                    "suggestion": "werweRDVC",
+                                    "objectId":    "28743623e78456"
+                                },
+                                {
+                                    "title":   "Add height tag to door ",
+                                    "type":    "error",
+                                    "description": "qweqweqwe",
+                                    "suggestion": "werweRDVC",
+                                    "objectId":    "28743623e78457"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":             "BF-Stairs",
+                    "achievementId":    "BFS",
+                    "group":            "Accessibility",
+                    "description":      "BF-Stairs is lorem ipsum ...",
+                    "fulfilled":        false,
+                    "currentStatus":    54,
+                    "precondition":     [
+                        2,
+                        3,
+                        4
+                    ],
+                    "tasks":    [
+                        {
+                            "name": "Add lorem ipsum key to door",
+                            "errorCode": "BFD-4",
+                            "errors": [
+                                    {
+                                        "title":     "Add stair ….",
+                                        "type":    "warning",
+                                        "description": "Add stair to ..",
+                                        "suggestion": "qweqweq",
+                                        "objectID":    "287236w9378456"
+                                    }
+                                ]
+                        },
+                        {
+                            "name": "Delete lorem ipsum stairs",
+                            "errorCode": "BFD-5",
+                            "errors": [
+                                {
+                                    "title":   "Delete stairs …",
+                                    "type":    "error",
+                                    "description": "qweqweqwe",
+                                    "suggestion": "werweRDVC",
+                                    "objectId":    "28713623e78456"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":             "Indoor Reachability",
+                    "achievementId":    "IR",
+                    "group":            "Navigability",
+                    "description":      "Indoor reachability is lorem ipsum ...",
+                    "fulfilled":        false,
+                    "currentStatus":    25,
+                    "precondition":     [
+                        2,
+                        3,
+                        4
+                    ],
+                    "tasks":    [
+                        {
+                            "name": "Add stairs to each level",
+                            "errorCode": "IR-4",
+                            "errors": [
+                                    {
+                                        "title":     "Add stairs to level ",
+                                        "type":    "warning",
+                                        "description": "Add stairs to ..",
+                                        "suggestion": "qweqweq",
+                                        "objectId":    "28743629378436"
+                                    }
+                                ]
+                        },
+                        {
+                            "name": "Delete lorem ipsum door",
+                            "errorCode": "IR-5",
+                            "errors": [
+                                {
+                                    "title":   "Delete door …",
+                                    "type":    "error",
+                                    "description": "qweqweqwe",
+                                    "suggestion": "werweRDVC",
+                                    "objectId":    "28743629e78457"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Delete lorem ipsum door",
+                            "errorCode": "IR-6",
+                            "errors": [
+                                {
+                                    "title":   "Delete door …",
+                                    "type":    "error",
+                                    "description": "qweqweqwe",
+                                    "suggestion": "werweRDVC",
+                                    "objectId":    "28743629e78457"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Delete lorem ipsum door",
+                            "errorCode": "IR-7",
+                            "errors": []
+                        }
+                    ]
+                },
+                {
+                    "name":             "BF-Rooms",
+                    "achievementId":    "BFR",
+                    "group":            "Accessibility",
+                    "description":      "Indoor reachability is lorem ipsum ...",
+                    "fulfilled":        true,
+                    "currentStatus":    100,
+                    "precondition":     [
+                        2,
+                        3,
+                        4
+                    ],
+                    "tasks":    []
+                },
+                {
+                    "name":             "Entrance",
+                    "achievementId":    "ENT",
+                    "group":            "Navigability",
+                    "description":      "Indoor reachability is lorem ipsum ...",
+                    "fulfilled":        true,
+                    "currentStatus":    100,
+                    "precondition":     [
+                        2,
+                        3,
+                        4
+                    ],
+                    "tasks":    []
+                },
+                {
+                    "name":             "Door",
+                    "achievementId":    "DOR",
+                    "group":            "Navigability",
+                    "description":      "Indoor reachability is lorem ipsum ...",
+                    "fulfilled":        true,
+                    "currentStatus":    100,
+                    "precondition":     [
+                        2,
+                        3,
+                        4
+                    ],
+                    "tasks":    []
+                }
+            ],           
+
+            "buildingObjects": {
+        
+                "building": {
+                    "name":    "",
+                    "tags": [
+                        {
+                            "name": "Andreas-Pfitzmann-Bau",
+                            "min-level": 2,
+                            "max-level": 3,
+                            "objectId": "(gibts es schon von OSM?)"
+                        }
+                    ],
+                    "childs": [           
+                        {
+                            "name": "level1",
+                            "tags": [
+                            ],
+                            "childs": [
+                                {
+                                    "name": "Room 66",
+                                    "tags": [],
+                                    "childs": []
+                                },                                    
+                                {
+                                    "name": "level border",
+                                    "nodeCoordinates": [[52.4, 58.7]],
+                                    "tags": [],
+                                    "childs": []
+                                }
+                                    
+                            ]
+                        }
+                                    
+                    ]
+                }
+            }
+        },
+        {
+            "selected":             false,
+            "name":                 "Alte Mensa",
+            "type":                 "food",
+            "sitCoverage":         35,
+            "levelCoverage":       [
+                [0,15.0],
+                [1,49.5],
+                [2,20.9]
+            ],
+            "achievements": [],
+            "buildingObjects": []
+        }                           
+    ],        
+       
+    "mapAreaValues": {
+        "indoorCoverage":       33,
+        "sitCoverage":          12,
+        "accessibility":        15,
+        "reachability":         90
+    }
+}
+

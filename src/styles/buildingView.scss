@@ -1,0 +1,96 @@
+
+.building-view {
+    height: 100%;
+    width: 27%;
+    background-color: white;
+    box-shadow: 0px 3px 20px #00000021;
+    padding: $big-padding;
+    padding-top: $huge-padding;
+    display: flex;
+    flex-direction: column;
+
+    .subtitle {
+        font-size: 20px;
+        color: $light-font-color;
+    }
+
+    .building-information-labels {
+        margin-top: $regular-padding;
+        margin-bottom: $big-padding;
+    }
+
+    .achievement-list {
+
+        margin-top: $small-padding;
+        margin-bottom: $big-padding;
+        display: flex;
+        flex-wrap: wrap;
+
+        .achievement-group {
+
+            width: 200px;          
+            margin-bottom: $small-padding; 
+            .groupName {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                span {
+                    margin-right: $small-padding;
+                }
+            }
+    
+            .achievement-container {
+                display: flex;
+                flex-direction: column;
+                padding: $tiny-padding;
+                padding-left: $regular-padding;
+            }
+        }
+    }
+
+    .building-objects {
+        flex: 1;
+        overflow-y: scroll;
+        padding: $small-padding;
+
+        .parent-list {
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+            border-radius: 5px;
+            background-color: $light-grey-background-color;
+            padding: $tiny-padding $small-padding;
+            margin: $tiny-padding;
+
+            .list-item-content {
+                display: flex;
+
+                span {
+                    width: 50%;
+                    word-break: break-all;
+                }
+            }
+
+            .feature-name, .level-name {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                color: #4E87B9;
+            }
+        } 
+    }  
+}
+
+.accessible {
+    
+    .building-objects {
+                  
+        li {
+            border: 1px solid black;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.label {
+
+    display: flex;
+    align-items: center;
+
+    .label-name {
+        color: $light-font-color;
+        width: 45%;
+    }
+
+    .label-value {
+        font-weight: 600;
+    }
+
+}

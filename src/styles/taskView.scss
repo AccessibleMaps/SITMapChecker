@@ -1,0 +1,59 @@
+.task-view {
+  width: 33%;
+  padding: $huge-padding;
+  padding-top: $huge-padding;
+  overflow: auto;
+
+  .filter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: auto;
+    margin-top: $regular-padding;
+    padding: $big-padding;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: $cardShadow;
+
+    min-width: 300px;
+
+    .searchbarContainer {
+
+      width: 100%;
+      margin-bottom: $regular-padding;
+
+      input {
+        width: 100%;
+        height: 40px;
+        padding-left: $regular-padding;
+        border-radius: 20px;
+        border: none;
+        background-color: $light-grey-background-color;
+        color: $dark-font-color;
+
+        font-size: 18px;
+
+      }
+    }
+
+    .filter-caption {
+      width: 100%;
+      cursor: pointer;
+
+      span {
+        margin-right: $small-padding;
+      }
+    }
+
+    .checkbox-container {
+      margin-top: $small-padding;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+  }
+}

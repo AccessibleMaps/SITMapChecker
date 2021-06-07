@@ -1,0 +1,14 @@
+.error-tooltip {
+
+    max-width: 350px;
+
+    background-color: white !important;
+    border-radius: 5px;
+    box-shadow: $tooltipShadow;
+    padding: $regular-padding;
+
+    .suggestion-container {        
+        margin-left: $small-padding;
+        white-space: pre-line;
+    }
+}

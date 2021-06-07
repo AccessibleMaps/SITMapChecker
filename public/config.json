@@ -1,0 +1,11 @@
+{
+	"editor_name": "SIT-MapChecker",
+	"hash": "GIT_HASH",
+	"data_min_zoom": 16,
+	"map_initial_zoom": 6,
+	"map_initial_latlng": [51.351, 10.459],
+	"osm_api_url": "",
+	"oauth_consumer_key": "",
+	"oauth_secret": "",
+	"always_authenticated": false
+}

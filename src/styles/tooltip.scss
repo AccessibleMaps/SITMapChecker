@@ -1,0 +1,73 @@
+.tooltip-content {
+
+    max-width: 350px;
+
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: $tooltipShadow;
+    padding: $regular-padding;
+
+    header {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: $small-padding;
+
+        .icon-container {
+            width: 30%;
+        }
+    
+        .heading-container {
+            padding-left: $regular-padding;
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+        }
+    }   
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: $small-padding;
+        
+        > div {
+            padding-left: $regular-padding;
+        }
+    }
+
+    .description-container {
+        text-align: justify;
+    }
+
+    .precondition-container {
+        display: flex;
+        flex-direction: column;
+        
+        .precondition {
+            display: flex;
+            align-items: center;       
+
+            img {
+                margin-right: $small-padding;
+            }
+        }
+    }
+
+    .status-container {
+
+        width: 100%;
+        height: 12px;
+
+        .status-bar-background {
+            width: 100%;
+            height: 100%;
+            background-color: $light-grey-background-color;
+            border-radius: 20px;
+        }
+        .status-bar {
+            height: 100%;
+            background-color: $main-color;
+            border-radius: 20px;
+        }
+    }
+
+}

@@ -1,0 +1,27 @@
+.achievement-group-container {
+
+    margin-top: $huge-padding;
+
+    .achievement-group {
+
+        margin-bottom: $big-padding;
+
+        .groupName {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            cursor: pointer;
+            margin-bottom: $regular-padding;
+            
+            h2 {
+                font-weight: 300;
+                color: $dark-font-color;              
+                margin-right: $regular-padding;
+            }      
+        }       
+
+        .achievement-container {
+            padding-left: $regular-padding;
+        }
+    }
+}

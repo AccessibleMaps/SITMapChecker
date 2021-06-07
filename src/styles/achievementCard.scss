@@ -1,0 +1,156 @@
+.achievement-card {
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 300px;
+
+    padding: $regular-padding;
+    padding-bottom: $tiny-padding;
+    margin-bottom: $regular-padding;
+
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: $cardShadow;
+
+    &.disabled {
+        opacity: 50%;
+    }
+
+    header.achievement-header {
+        width: auto;
+        display: flex;
+        flex-direction: row;       
+        margin-bottom: $small-padding;
+
+        .achievement-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 13%;
+            
+            img {
+                width: 100%;
+                max-width: 70px;
+                min-width: 45px;
+                height: auto;
+            }
+        }
+
+        .achievement-content {
+            width: 80%;
+            padding-left: $regular-padding;
+            
+            .heading-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;                
+
+                h2 {
+                    font-weight: 600;
+                    color: $heading-font-color;
+                }
+
+                span {
+                    font-size: $tiny-font-size;
+                    color:  $light-font-color;
+                }
+            }
+
+            .status-bar-container {
+
+                width: 100%;
+                height: 12px;
+
+                .status-bar-background {
+                    width: 100%;
+                    height: 100%;
+                    background-color: $light-grey-background-color;
+                    border-radius: 20px;
+                }
+                .status-bar {
+                    height: 100%;
+                    background-color: $main-color;
+                    border-radius: 20px;
+                }
+            }
+        }
+
+        .toggle-chevron-container {
+            width: 7%;
+            padding-left: $regular-padding;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;         
+        }
+    
+    }    
+
+    .task-container {
+
+        display: flex;
+        flex-direction: column;
+
+        .task-item {           
+            padding: $small-padding;
+            padding-right: 0;
+            border-top: solid 2px $light-grey-background-color;
+            cursor: pointer;
+            height: fit-content;
+
+            header {
+                display: flex;               
+                align-items: center;
+
+                .task-icon {                    
+                    width: 10%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .task-content {
+                    padding-left: $tiny-padding;
+                    width: 83%;
+                }
+
+                .toggle-chevron-container {
+                    width: 7%;
+                    padding-left: $regular-padding;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;        
+                }
+
+            }
+
+            .error-list {
+
+                margin-bottom: 0;                
+                .error-list-item {
+                    
+                    display: flex;
+                    padding: $small-padding;
+
+                    
+                    &:hover {
+                        background-color: $light-grey-background-color;
+                        border-radius: 5px;
+                    }
+
+                    img {
+                        margin-right: $small-padding;
+                        width: 25px;
+                        height: 25px;
+                    }
+    
+                    .error-title {
+                        margin-right: $small-padding;
+                    }                                       
+                }
+            }
+        }
+    }
+}

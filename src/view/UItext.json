@@ -1,0 +1,581 @@
+{
+    "SIT": {
+        "name":         "SIT conformity",
+        "group":        "General",
+        "description":  "A building satisfies the 'SIT conformity' achievement if a plethora of SIT criteria is satisfied.",
+        "precondition": [],
+        "tasks": {
+            "INTERSECT-X": {
+                "name":     "Fix invalid ways.",
+                "errors": {
+                    "INTERSECT-1": {
+                        "title":        "The $| '$'| intersects itself $| at $.",
+                        "type":         "error",
+                        "suggestion":   "Remove the intersection."
+                    },
+                
+                    "INTERSECT-2": {
+                        "title":        "The $| '$'| has successive double nodes $| at $.",
+                        "type":         "warning",
+                        "suggestion":   "Remove one of the nodes at the given coordinates."
+                    },
+                
+                    "INTERSECT-3": {
+                        "title":        "The $| '$'| has superposed line segments $| at $.",
+                        "type":         "error",
+                        "suggestion":   "Remove the superposition of line segments."
+                    }
+                }
+            },
+
+
+            "DOORLVL-1": {
+                "name":     "Add wall representations below doors or delete them.",
+                "errors": {
+
+                    "DOORNOWALL-1": {
+                        "title":        "The door '$'| is not situated on wall representations on level(s) $.",
+                        "type":         "error",
+                        "suggestion":   "Add a wall representation via a room (indoor='room'), wall (indoor='wall') or level outline (indoor='level'), or delete the door."
+                    },
+
+                    "MULTILVLDOOR-1": {
+                        "title":        "The door '$'| only is situated on the multi-level wall representation $| '$' on level(s) |$, not on| $.",
+                        "type":         "error",
+                        "suggestion":   "Increase the level range of the multi-level wall representation, or delete the door."
+                    },
+
+                    "MULTILVLDOOR-2": {
+                        "title":        "The door '$' | is not situated on any multi-level wall representation (room, wall or building / level outline) on level(s) $.",
+                        "type":         "error",
+                        "suggestion":   "Add a multi-level wall representation covering a continous level range of the door or delete it."
+                    }
+                }
+            },
+
+            "POLY-X": {
+                "name":     "Fix polygons in features.",
+                "errors": {
+                    
+                    "POLY-1": {
+                        "title":        "The feature '$'| has subpolyons of which the borders intersect$.",
+                        "type":         "error",
+                        "suggestion":   "Fix the borders of the subpolygons so their borders don't intersect anymore."
+                    },
+
+                    "POLY-2": {
+                        "title":        "The feature '$'| has inner subpolygons not fully contained by the outer polygon border$.",
+                        "type":         "error",
+                        "suggestion":   "Fix the borders of the invalid subpolygons so they are fully contained." 
+                    }
+                }
+            },
+
+            "MULTIPOLY-X": {
+                "name":     "Fix invalid multi-polygons.",
+                "errors": {
+
+                    "MULTIPOLY-1": {
+                        "title":        "The multipolygon building '$' has no polygon which surrounds all its others.",
+                        "type":         "error",
+                        "suggestion":   "Groups of buildings not enclosed by one of their members should be mapped as seperate buildings. Alternatively, change the problematic polygons or delete them."
+                    },
+
+                    "MULTIPOLY-2": {
+                        "title":        "Some polygons of the multipolygon building '$' overlap.",
+                        "type":         "error",
+                        "suggestion":   "Change the borders of the problematic polygons or delete them."
+                    },
+
+                    "MULTIPOLY-3": {
+                        "title":        "The multipolygon '$' is no building. Only buildings are allowed to be multipolygons.",
+                        "type":         "error",
+                        "suggestion":   "If the object should represent an indoor feature, map it as seperate polygons. If it should represent a building, add a 'building' with at least the value 'yes'."
+                    }
+                }
+            },
+
+            "BUILDINGTAGS-1":{
+                "name":     "Fix values of the tags of the building.",
+                "errors":{
+                    "BUILDINGTAGS-1":{
+                        "title":        "The building '$'| has a wrong value in tag '$'.",
+                        "type":         "error",
+                        "suggestion":   "Adjust the tag value according to SIT. The rules that apply can be found in the documentation of the tool."
+                    }
+                }
+            },
+            
+            "BUILDINGTAGS-2":{
+                "name":     "Add missing tags to building.",
+                "errors":{
+                    "BUILDINGTAGS-2":{
+                        "title":        "The building '$'| needs the tag '$'.",
+                        "type":         "error",
+                        "suggestion":   "Add the tag value according to SIT. The rules that apply can be found in the documentation of the tool."
+                    }
+                }
+            },            
+            
+            "BUILDINGTAGS-3":{
+                "name":     "Fix min_level and max_level, because min_level is greater than max_level.",
+                "errors":{
+                    "BUILDINGTAGS-3":{
+                        "title":        "min_level is greater than max_level at building '$'.",
+                        "type":         "error",
+                        "suggestion":   "min_level has to be smaller than or equal to max_level. Adjust the values accordingly."
+                    }
+                }
+            },
+            
+            "DOORTAGS-1":{
+                "name":     "Fix the values of the door tags.",
+                "errors":{
+                    "DOORTAGS-1":{
+                        "title":        "The door tag of door '$' has a incorrect value.",
+                        "type":         "error",
+                        "suggestion":   "Fix the tag value according to SIT. The rules that apply can be found in the documentation of the tool."
+                    }
+                }
+            },
+            
+            "LEVELTAGS-1":{
+                "name":     "Fix the values of the level/repeat_on tags.",
+                "errors":{
+                    "LEVELTAGS-1":{
+                        "title":        "The level/repeat_on tag of object '$' has a incorrect value.",
+                        "type":         "error",
+                        "suggestion":   "Fix the tag value according to SIT. Multiple single levels ('1') or ranges ('1-3') seperated by semicoli can be defined. Levels with negative sign are possible, e.g.: '-3--1;1;3-5;8;9-10'. The complete rules that apply can be found in the documentation of the tool."
+                    }
+                }
+            },            
+            
+            "LEVELTAGS-2":{
+                "name":     "Add level or repeat_on tag.",
+                "errors":{
+                    "LEVELTAGS-2":{
+                        "title":        "The object '$' has neither a level nor a repeat_on tag.",
+                        "type":         "error",
+                        "suggestion":   "Add a level or a repeat_on tag, which is needed according to SIT. Multiple single levels ('1') or ranges ('1-3') seperatet by semicoli can be defined. Levels with negative sign are possible, e.g.: '-3--1;1;3-5;8;9-10'. The complete rules that apply can be found in the documentation of the tool."
+                    }
+                }
+            },
+
+            "LEVELTAGS-3":{
+                "name":     "Remove level or repeat_on tag, only one is allowed.",
+                "errors":{
+                    "LEVELTAGS-3":{
+                        "title":        "The object '$' has both the level and the repeat_on tag.",
+                        "type":         "error",
+                        "suggestion":   "Remove the level tag,  if you want to represent a real object that repeats on multiple levels, or the repeat_on tag, if you want to represent a real object spanning multiple levels, because only one of them is allowed."
+                    }
+                }
+            },
+
+            "LEVELTAGS-4":{
+                "name":     "Fix the value of the level/repeat_on tag. It has a level which does not exist.",
+                "errors":{
+                    "LEVELTAGS-4":{
+                        "title":        "The object '$' has a level/repeat_on tag, where the value is a not existing level.",
+                        "type":         "error",
+                        "suggestion":   "Fix the level/repeat_on tag, because only levels that exist are allowed. The level may be non-existent, because the building has no min_level and/or max_level tag and therefore the levels are not well defined. The level could also be non-existent, because it is not in the range between min_level and max_level or is specified as non-existent in the non_existent_levels tag."
+                    }
+                }
+            },
+
+            "TYPE-X": {
+                "name":     "Fix tags for SIT types.",
+                "errors": {
+                    "TYPE-1": {
+                        "title":        "The feature '$' does not have an SIT type tag.",
+                        "type":         "error",
+                        "suggestion":   "THIS SHOULD NOT APPEAR IN THE UI!"
+                    },
+
+                    "TYPE-2": {
+                        "title":        "The feature '$'| has the SIT type tag $| which does not match its geometry type '$'.",
+                        "type":         "error",
+                        "suggestion":   "THIS SHOULD NOT APPEAR IN THE UI!"
+                    },
+
+                    "TYPE-3": {
+                        "title":        "The feature '$' has a 'door' and 'indoor' tag, but only one SIT type tag is allowed.",
+                        "type":         "error",
+                        "suggestion":   "THIS SHOULD NOT APPEAR IN THE UI!"
+                    }
+                }
+            },
+
+            "BUILDING-INTERSECT-X": {
+                "name":     "Fix intersection of the building's borders.",
+                "errors": {
+                    "BUILDING-INTERSECT-1": {
+                        "title":        "The feature '$' intersects the building's borders.",
+                        "type":         "warning",
+                        "suggestion":   "Change the geometry of the feature, delete it, or expand the building's borders."
+                    },
+
+                    "BUILDING-INTERSECT-2": {
+                        "title":        "The feature '$'| intersects the building's borders on the level(s) $| while intersecting the level features $.",
+                        "type":         "warning",
+                        "suggestion":   "Change the geometry of the feature, delete it, or expand the building's borders."
+                    }
+                }
+            },
+
+            "BUILDING-OVERLAP-X": {
+                "name":     "Fix overlaps between buildings.",
+                "errors": {
+                    "BUILDING-OVERLAP-1": {
+                        "title":        "The current building overlaps with the building '$'.",
+                        "type":         "warning",
+                        "suggestion":   "Change the borders of the buildings so they don't overlap anymore, or map them as one building."
+                    }
+                }
+            },
+
+            "LVLOVERLAP-X": {
+                "name":     "Fix overlaps between level features.",
+                "errors": {
+                    "LVLOVERLAP-1": {
+                        "title":        "Level feature '$'| overlaps with level feature '$'| on level(s) $.",
+                        "type":         "error",
+                        "suggestion":   "Change the borders or levels of the level features so they don't overlap anymore, or delete one of them."
+                    }
+                }
+            }
+            
+        }
+    },
+     
+    "BFD": {
+        "name":         "Door",
+        "group":        "Accessibility",
+        "description":  "A building satisfies the basic 'Door' achievement if a plethora of Accessibility criteria is satisfied.",
+        "precondition": [],
+        "tasks": {
+            "ACCDOORBASIC-X": {
+                "name":     "Fix not accessibly tagged doors.",
+                "errors": {
+                    "ACCDOORBASIC-1": {
+                        "title":        "The door '$'| has no tag '$'.",
+                        "type":         "error",
+                        "suggestion":   "Add the missing tag according to the accessibility specification in the documentation of the tool."
+                    },
+                
+                    "ACCDOORBASIC-2": {
+                        "title":        "The door '$'| has a false value in tag '$'.",
+                        "type":         "warning",
+                        "suggestion":   "Adjust the value of the tag according to the accessibility specification in the documentation of the tool."
+                    }
+                }
+            }
+        }
+    },
+
+    "BFD2": {
+        "name":         "Door +",
+        "group":        "Accessibility",
+        "description":  "A building satisfies the advanced 'Door' achievement if a plethora of Accessibility criteria is satisfied.",
+        "precondition": [
+            "BFD"
+        ],
+        "tasks": {
+            "ACCDOORPREMIUM-X": {
+                "name":     "Fix not accessibly tagged doors.",
+                "errors": {
+                    "ACCDOORPREMIUM-1": {
+                        "title":        "The door '$'| has no tag '$'.",
+                        "type":         "error",
+                        "suggestion":   "Add the missing tag according to the accessibility specification in the documentation of the tool."
+                    },
+                
+                    "ACCDOORPREMIUM-2": {
+                        "title":        "The door '$'| has a false value in tag '$'.",
+                        "type":         "warning",
+                        "suggestion":   "Adjust the value of the tag according to the accessibility specification in the documentation of the tool."
+                    }
+                }
+            }
+        }
+    },
+
+    "BFS": {
+        "name":         "Stairs",
+        "group":        "Accessibility",
+        "description":  "A building satisfies the basic 'Stairs' achievement if a plethora of Accessibility criteria is satisfied.",
+        "precondition": [],
+        "tasks": {
+            "ACCRAMPBASIC-X": {
+                "name":     "Fix not accessibly tagged ramp objects.",
+                "errors": {
+                    "ACCRAMPBASIC-1": {
+                        "title":        "The ramp object '$'| has no tag '$'.",
+                        "type":         "error",
+                        "suggestion":   "Add the missing tag according to the accessibility specification in the documentation of the tool."
+                    },
+                
+                    "ACCRAMPBASIC-2": {
+                        "title":        "The ramp object '$'| has a false value in tag '$'.",
+                        "type":         "warning",
+                        "suggestion":   "Adjust the value of the tag according to the accessibility specification in the documentation of the tool."
+                    }
+                }
+            },
+            "ACCSTAIRSBASIC-X": {
+                "name":     "Fix not accessibly tagged stairs.",
+                "errors": {
+                    "ACCSTAIRSBASIC-1": {
+                        "title":        "The stairs '$'| have no tag '$'.",
+                        "type":         "error",
+                        "suggestion":   "Add the missing tag according to the accessibility specification in the documentation of the tool."
+                    },
+                
+                    "ACCSTAIRSBASIC-2": {
+                        "title":        "The stairs '$'| have a false value in tag '$'.",
+                        "type":         "warning",
+                        "suggestion":   "Adjust the value of the tag according to the accessibility specification in the documentation of the tool."
+                    }
+                }
+            }
+        }
+    },
+
+    "BFS2": {
+        "name":         "Stairs +",
+        "group":        "Accessibility",
+        "description":  "A building satisfies the advanced 'Stairs' achievement if a plethora of Accessibility criteria is satisfied.",
+        "precondition": [
+            "BFS"
+        ],
+        "tasks": {
+            "ACCRAMPPREMIUM-X": {
+                "name":     "Fix not accessibly tagged ramp objects.",
+                "errors": {
+                    "ACCRAMPPREMIUM-1": {
+                        "title":        "The ramp object '$'| has no tag '$'.",
+                        "type":         "error",
+                        "suggestion":   "Add the missing tag according to the accessibility specification in the documentation of the tool."
+                    },
+                
+                    "ACCRAMPPREMIUM-2": {
+                        "title":        "The ramp object '$'| has a false value in tag '$'.",
+                        "type":         "warning",
+                        "suggestion":   "Adjust the value of the tag according to the accessibility specification in the documentation of the tool."
+                    }
+                }
+            },
+            "ACCSTAIRSPREMIUM-X": {
+                "name":     "Fix not accessibly tagged stairs.",
+                "errors": {
+                    "ACCSTAIRSPREMIUM-1": {
+                        "title":        "The stairs '$'| have no tag '$'.",
+                        "type":         "error",
+                        "suggestion":   "Add the missing tag according to the accessibility specification in the documentation of the tool."
+                    },
+                
+                    "ACCSTAIRSPREMIUM-2": {
+                        "title":        "The stairs '$'| have a false value in tag '$'.",
+                        "type":         "warning",
+                        "suggestion":   "Adjust the value of the tag according to the accessibility specification in the documentation of the tool."
+                    }
+                }
+            }
+        }
+    },
+
+    "ELEV": {
+        "name":         "Elevator",
+        "group":        "Accessibility",
+        "description":  "A building satisfies the basic 'Elevator' achievement if a plethora of Accessibility criteria is satisfied.",
+        "precondition": [],
+        "tasks": {
+            "ACCELEVBASIC-X": {
+                "name":     "Fix not accessibly tagged elevators.",
+                "errors": {
+                    "ACCELEVBASIC-1": {
+                        "title":        "The elevator '$'| has no tag '$'.",
+                        "type":         "error",
+                        "suggestion":   "Add the missing tag according to the accessibility specification in the documentation of the tool."
+                    },
+                
+                    "ACCELEVBASIC-2": {
+                        "title":        "The elevator '$'| has a false value in tag '$'.",
+                        "type":         "warning",
+                        "suggestion":   "Adjust the value of the tag according to the accessibility specification in the documentation of the tool."
+                    }
+                }
+            }
+        }
+    },
+
+    "ELEV2": {
+        "name":         "Elevator +",
+        "group":        "Accessibility",
+        "description":  "A building satisfies the advanced 'Elevator' achievement if a plethora of Accessibility criteria is satisfied.",
+        "precondition": [
+            "ELEV"
+        ],
+        "tasks": {
+            "ACCELEVPREMIUM-X": {
+                "name":     "Fix not accessibly tagged elevators.",
+                "errors": {
+                    "ACCELEVPREMIUM-1": {
+                        "title":        "The elevator '$'| has no tag '$'.",
+                        "type":         "error",
+                        "suggestion":   "Add the missing tag according to the accessibility specification in the documentation of the tool."
+                    },
+                
+                    "ACCELEVPREMIUM-2": {
+                        "title":        "The elevator '$'| has a false value in tag '$'.",
+                        "type":         "warning",
+                        "suggestion":   "Adjust the value of the tag according to the accessibility specification in the documentation of the tool."
+                    }
+                }
+            }
+        }
+    },
+
+    "WC": {
+        "name":         "Toilet",
+        "group":        "Accessibility",
+        "description":  "A building satisfies the 'Toilet Accessibility' achievement if a plethora of Accessibility criteria is satisfied.",
+        "precondition": [],
+        "tasks": {
+            "ACCWC-X": {
+                "name":     "Fix not accessibly tagged toilets.",
+                "errors": {
+                    "ACCWC-1": {
+                        "title":        "The toilet '$'| has no tag '$'.",
+                        "type":         "error",
+                        "suggestion":   "Add the missing tag according to the accessibility specification in the documentation of the tool."
+                    },
+                
+                    "ACCWC-2": {
+                        "title":        "The toilet '$'| has a false value in tag '$'.",
+                        "type":         "warning",
+                        "suggestion":   "Adjust the value of the tag according to the accessibility specification in the documentation of the tool."
+                    }
+                }
+            }
+        }
+    },
+
+    
+    "TAC": {
+        "name":         "Tactile",
+        "group":        "Accessibility",
+        "description":  "A building satisfies the 'Tactile Accessibility' achievement if a plethora of Accessibility criteria is satisfied.",
+        "precondition": [],
+        "tasks": {
+            "ACCTAC-X": {
+                "name":     "Fix not accessibly tagged tactile objects.",
+                "errors": {
+                    "ACCTAC-1": {
+                        "title":        "The tactile object '$'| has no tag '$'.",
+                        "type":         "error",
+                        "suggestion":   "Add the missing tag according to the accessibility specification in the documentation of the tool."
+                    },
+                
+                    "ACCTAC-2": {
+                        "title":        "The tactile object '$'| has a false value in tag '$'.",
+                        "type":         "warning",
+                        "suggestion":   "Adjust the value of the tag according to the accessibility specification in the documentation of the tool."
+                    }
+                }
+            }
+        }
+    },
+
+    "ENTR": {
+        "name":         "Entrance",
+        "group":        "Navigability",
+        "description":  "A building satisfies the 'Entrance' achievement if an building entrance exists, i.e. an OSM node tagged with an SIT-conform 'door=*' key value pair on the building's outline.",
+        "precondition": [],
+        "tasks": {
+            "ENTR-1": {
+                "name":     "Add an entrance.",
+                "errors": {
+                    "ENTR-1": {
+                        "title":        "Current building has no entrance.",
+                        "type":         "error",
+                        "suggestion":   "Add an entrance to the building (as specified in the achievement tooltip)."
+                    }
+                }
+            }
+        }
+    },
+
+    "DOOR": {
+        "name":         "Door per room",
+        "group":        "Navigability",
+        "description":  "A building satisfies the 'Door per room' achievement if there is an OSM node tagged with an SIT-conform 'door=*' on the outline of every OSM area which is tagged with 'indoor=room' SIT-conformly.",
+        "precondition": [],
+        "tasks": {
+            "DOOR-1": {
+                "name":     "Add doors to the rooms listed below.",
+                "errors": {
+                    "DOOR-1": {
+                        "title":        "Room '$' has no door.",
+                        "type":         "error",
+                        "suggestion":   "Add a door to the room (as specified in the achievement tooltip) or change the 'indoor=room' tag to another indoor area type."
+                    }
+                }
+            }
+        }
+    },
+        
+    "LVLREACH": {
+        "name":         "Level reachability",
+        "group":        "Navigability",
+        "description":  "A building satisfies the 'Level reachability' achievement if every level is reachable from the outside of the building according to the navigability specification in the tool's documenation.",
+        "precondition": [
+            "ENTR"
+        ],
+        "tasks": {
+            "LVLREACH-1": {
+                "name":     "Add level connections or entrances to the levels listed below.",
+                "errors": {
+                    "LVLREACH-1": {
+                        "title":        "Level '$' is not reachable",
+                        "type":         "error",
+                        "suggestion":   "Add a level connection which connects this level to a reachable OSM area (reachability as specified the navigability specification in the tool's documentation) or add an building entrance on this level."
+                    }
+                }
+            }
+        }
+    },
+        
+    "REACH": {
+        "name":         "Reachability",
+        "group":        "Navigability",
+        "description":  "A building satisfies the 'Reachability' achievement if every part of a building is reachable from the outside of the building (details will be added).",
+        "precondition":[
+            "ENTR"
+        ],
+        "tasks": {
+            "REACH-1": {
+                "name":     "Add OSM areas, level connections or entrances to connect the OSM areas listed below to reachable OSM areas or the outside of the building.",
+                "errors": {
+                    "REACH-1": {
+                        "title":        "Area '$' is not reachable",
+                        "type":         "error",
+                        "suggestion":   "Add tagged OSM areas ('indoor=room', 'indoor=area', 'indoor=corridor') connecting this area with a reachable area (reachability as specified the navigability specification in the tool's documentation) if this area's level is reachable. If not, see level reachability suggestions."
+                    }
+                }
+            }
+        }
+    },
+        
+    "COV": {
+        "name":         "Coverage",
+        "group":        "General",
+        "description":  "A building can only satisfy the coverage achievement if all areas of all of its levels are covered with consistently SIT-typed (see documentation of the tool) polygon features.",
+        "precondition": [],
+        "tasks": {
+            "COV-1": {
+                "name":     "Increase coverage by OSM areas by adding more consistently SIT-typed areas where there are none."
+            }
+        }
+    }
+}
