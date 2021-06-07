@@ -4,6 +4,9 @@
 	"data_min_zoom": 16,
 	"map_initial_zoom": 6,
 	"map_initial_latlng": [51.351, 10.459],
+	"providers": {
+		"bing": "AhsSQakuHuX3ozMBXC60w-hPk0KD_smZZbHLjb7mBFfeIwDKJnJn2_qK3qQfYfPZ"
+	},
 	"osm_api_url": "",
 	"oauth_consumer_key": "",
 	"oauth_secret": "",
