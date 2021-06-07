@@ -1,6 +1,6 @@
 # SITMapChecker
 
-SITMapChecker is a web application to support mapper to map buildings in SIT.
+SITMapChecker is a web application that is intended to support the indoor mapping process in OSM.
 
 ## How to Run
 
